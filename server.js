@@ -8,6 +8,8 @@ const ticketsFull = [{id: 1, name: 'Поменять краску в принт�
 app.use(async(ctx)=> {
     const { method } = ctx.request.query;
 
+    ctx.response.set({'Access-Control-Allow-Origin':'*',});
+
     switch (method) {
         case 'allTickets':
             ctx.response.body = tickets;
