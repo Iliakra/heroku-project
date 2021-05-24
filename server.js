@@ -3,7 +3,7 @@ const Koa = require('koa');
 const app= new Koa();
 
 const tickets = [{id: 1, name: 'Серверная задача 1', status: true, created: '18/05/2021 13.15'}, {id: 2, name: 'Найти сотрудника', status: false, created: '18/05/2021 14.15'}];
-const ticketsFull = [{id: 1, name: 'Серверная задача 2', description: 'eeddedeededededed', status: true, created: '18/05/2021 13.15'}, {id: 2, name: 'Найти сотрудника', description: 'eeddedeededededed', status: false, created: '18/05/2021 14.15'}]
+const ticketsFull = [{id: 1, name: 'Серверная задача 1', description: 'eeddedeededededed', status: true, created: '18/05/2021 13.15'}, {id: 2, name: 'Найти сотрудника', description: 'eeddedeededededed', status: false, created: '18/05/2021 14.15'}]
 
 app.use(async ctx => {
     const { method } = ctx.request.query;
