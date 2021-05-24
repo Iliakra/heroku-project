@@ -14,7 +14,7 @@ app.use(async ctx => {
         case 'allTickets':
             ctx.response.body = tickets;
             return;
-        case 'ticketById&id':
+        case 'ticketById':
             ctx.response.body = ticketsFull;
             return;
         default:
