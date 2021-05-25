@@ -14,21 +14,21 @@ app.use(async ctx => {
 
     ctx.response.set({'Access-Control-Allow-Origin':'*',});
 
-    if (method) {
-        switch (method) {
-            case 'allTickets':
-                ctx.response.body = tickets;
-                return;
-            case 'ticketById':
-                ctx.response.body = ticketsFull;
-                return;
-            default:
-                ctx.response.status = 404;
-                return;
-        }
+    switch (method) {
+        case 'allTickets':
+            ctx.response.body = tickets;
+            return;
+        case 'ticketById':
+            ctx.response.body = ticketsFull;
+            return;
+        case 'createTicket':
+            let requestBody = ctx.request.body;
+            ctx.response.body = 'Added';
+            return
+        default:
+            ctx.response.status = 404;
+            return;
     }
-
-    ctx.response.body = requestBody;
 
 });
 
