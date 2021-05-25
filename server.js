@@ -10,25 +10,27 @@ app.use(koaBody({urlencoded:true,}));
 
 app.use(async ctx => {
     const { method } = ctx.request.query;
+    const requestBody = ctx.request.body;
 
     ctx.response.set({'Access-Control-Allow-Origin':'*',});
 
-    switch (method) {
-        case 'allTickets':
-            ctx.response.body = tickets;
-            return;
-        case 'ticketById':
-            ctx.response.body = ticketsFull;
-            return;
-        case 'createTicket':
-            ctx.response.body = method;
-        default:
-            ctx.response.status = 404;
-            return;
+    if (method) {
+        switch (method) {
+            case 'allTickets':
+                ctx.response.body = tickets;
+                return;
+            case 'ticketById':
+                ctx.response.body = ticketsFull;
+                return;
+            default:
+                ctx.response.status = 404;
+                return;
+        }
     }
 
-});
+    ctx.response.body = requestBody;
 
+});
 
 
 const port = process.env.PORT||7070;
