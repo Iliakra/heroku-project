@@ -17,6 +17,8 @@ app.use(async ctx => {
         case 'ticketById':
             ctx.response.body = ticketsFull;
             return;
+        case 'createTicket':
+            ctx.response.body = 'Added';
         default:
             ctx.response.status = 404;
             return;
