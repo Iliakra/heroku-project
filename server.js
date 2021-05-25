@@ -21,7 +21,8 @@ app.use(async ctx => {
             ctx.response.body = ticketsFull;
             return;
         case 'createTicket':
-            ctx.response.body = 'Added';
+            const requestBody = ctx.request.body;
+            ctx.response.body = requestBody;
         default:
             ctx.response.status = 404;
             return;
@@ -29,11 +30,6 @@ app.use(async ctx => {
 
 });
 
-app.use(async ctx => {
-    const requestBody = ctx.request.body;
-    ctx.response.set({'Access-Control-Allow-Origin':'*',});
-    ctx.response.body = requestBody;
-})
 
 
 const port = process.env.PORT||7070;
