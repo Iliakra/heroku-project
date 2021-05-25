@@ -23,7 +23,7 @@ app.use(async ctx => {
             return;
         case 'createTicket':
             let requestBody = ctx.request.body;
-            ctx.response.body = 'Added';
+            ctx.response.body = requestBody;
             return
         default:
             ctx.response.status = 404;
