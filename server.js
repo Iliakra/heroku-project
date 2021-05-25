@@ -21,8 +21,7 @@ app.use(async ctx => {
             ctx.response.body = ticketsFull;
             return;
         case 'createTicket':
-            const requestBody = ctx.request.body;
-            ctx.response.body = requestBody;
+            ctx.response.body = method;
         default:
             ctx.response.status = 404;
             return;
