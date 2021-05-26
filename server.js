@@ -11,9 +11,9 @@ function displayTime() {
 
     var currentDate = new Date();
     var date = currentDate.getDate();
-    var month = currentDate.getMonth();
-    var year = currentDate.getYear();
-    let hour = currentDate.getHours();
+    var month = currentDate.getMonth()+1;
+    var year = currentDate.getFullYear();
+    let hour = currentDate.getHours()+3;
     let minutes = currentDate.getMinutes();
 
     if (date < 10) {
