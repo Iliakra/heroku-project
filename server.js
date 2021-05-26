@@ -9,10 +9,10 @@ const ticketsFull = [{id: 1, name: 'Серверная задача 1', descript
 function displayTime() {
     var str = "";
 
-    var currentDate = new Date();
-    var date = currentDate.getDate();
-    var month = currentDate.getMonth()+1;
-    var year = currentDate.getFullYear();
+    let currentDate = new Date();
+    let date = currentDate.getDate();
+    let month = currentDate.getMonth()+1;
+    let year = date.toLocaleString('de-DE', {year: '2-digit'});
     let hour = currentDate.getHours()+3;
     let minutes = currentDate.getMinutes();
 
