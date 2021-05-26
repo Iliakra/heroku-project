@@ -12,7 +12,7 @@ function displayTime() {
     let currentDate = new Date();
     let date = currentDate.getDate();
     let month = currentDate.getMonth()+1;
-    let year = date.toLocaleString('de-DE', {year: '2-digit'});
+    let currentYear = date.toLocaleString('de-DE', {year: '2-digit'});
     let hour = currentDate.getHours()+3;
     let minutes = currentDate.getMinutes();
 
@@ -30,7 +30,7 @@ function displayTime() {
     }
 
 
-    str += date + "." + month + "." + year + " " + hour + ':' + minutes;
+    str += date + "." + month + "." + currentYear + " " + hour + ':' + minutes;
     
     return str;
 }
