@@ -23,7 +23,11 @@ app.use(async ctx => {
             return;
         case 'createTicket':
             let requestBody = ctx.request.body;
-            ctx.response.body = requestBody;
+            let newTicket = {id: tickets.length, name: requestBody.short_description, status: false, created: '1231421442'};
+            let newTicketFull = {id: ticketsFull.length, name: requestBody.short_description, description: requestBody.long_description, status: false, created: '1231421442'};
+            tickets.push(newTicket);
+            ticketsFull.push(newTicketFull);
+            ctx.response.body = 'OK';
             return
         default:
             ctx.response.status = 404;
