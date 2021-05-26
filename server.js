@@ -23,8 +23,9 @@ app.use(async ctx => {
             return;
         case 'createTicket':
             let requestBody = ctx.request.body;
-            let newTicket = {id: tickets.length, name: requestBody.short_description, status: false, created: '1231421442'};
-            let newTicketFull = {id: ticketsFull.length, name: requestBody.short_description, description: requestBody.long_description, status: false, created: '1231421442'};
+            let date = new Date();
+            let newTicket = {id: tickets.length, name: requestBody.short_description, status: false, created: `${date.getDate()}.${date.getMonth()}.${date.getYear()}  ${date.getHours}:${date.getMinutes}`};
+            let newTicketFull = {id: ticketsFull.length, name: requestBody.short_description, description: requestBody.long_description, status: false, created: `${date.getDate()}.${date.getMonth()}.${date.getYear()}  ${date.getHours}:${date.getMinutes}`};
             tickets.push(newTicket);
             ticketsFull.push(newTicketFull);
             ctx.response.body = 'OK';
