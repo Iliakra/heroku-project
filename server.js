@@ -29,14 +29,14 @@ app.use(async ctx => {
                 id: tickets.length, 
                 name: requestBody.short_description, 
                 status: false, 
-                created: date.toLocaleString(),
+                created: date.toLocaleDateString(),
             };
             let newTicketFull = {
                 id: ticketsFull.length, 
                 name: requestBody.short_description, 
                 description: requestBody.long_description, 
                 status: false, 
-                created: date.toLocaleString(),
+                created: date.toLocaleDateString(),
             };
             tickets.push(newTicket);
             ticketsFull.push(newTicketFull);
