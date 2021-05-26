@@ -6,6 +6,35 @@ const app= new Koa();
 const tickets = [{id: 1, name: 'Серверная задача 1', status: true, created: '18/05/2021 13.15'}, {id: 2, name: 'Найти сотрудника', status: false, created: '18/05/2021 14.15'}];
 const ticketsFull = [{id: 1, name: 'Серверная задача 1', description: 'eeddedeededededed', status: true, created: '18/05/2021 13.15'}, {id: 2, name: 'Найти сотрудника', description: 'eeddedeededededed', status: false, created: '18/05/2021 14.15'}]
 
+function displayTime() {
+    var str = "";
+
+    var currentDate = new Date();
+    var date = currentDate.getDate();
+    var month = currentDate.getMonth();
+    var year = currentDate.getYear();
+    let hour = currentDate.getHours();
+    let minutes = currentDate.getMinutes();
+
+    if (date < 10) {
+        date = "0" + date
+    }
+    if (month < 10) {
+        month = "0" + month
+    }
+    if (hour < 10) {
+        hour = "0" + hour
+    }
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+
+
+    str += date + "." + month + "." + year + " " + hour + ':' + minutes;
+    
+    return str;
+}
+
 app.use(koaBody({urlencoded: true, multipart: true,}));
 
 app.use(async ctx => {
@@ -29,14 +58,14 @@ app.use(async ctx => {
                 id: tickets.length, 
                 name: requestBody.short_description, 
                 status: false, 
-                created: date.toLocaleDateString(),
+                created: displayTime(),
             };
             let newTicketFull = {
                 id: ticketsFull.length, 
                 name: requestBody.short_description, 
                 description: requestBody.long_description, 
                 status: false, 
-                created: date.toLocaleDateString(),
+                created: displayTime(),
             };
             tickets.push(newTicket);
             ticketsFull.push(newTicketFull);
