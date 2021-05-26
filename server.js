@@ -24,19 +24,19 @@ app.use(async ctx => {
         case 'createTicket':
             let requestBody = ctx.request.body;
             let date = new Date();
-            let options = {day: 'numeric', month: 'numeric', year: '2-digit', hour: 'numeric', minute: 'numeric'};
+            //let options = {day: 'numeric', month: 'numeric', year: '2-digit', hour: 'numeric', minute: 'numeric'};
             let newTicket = {
                 id: tickets.length, 
                 name: requestBody.short_description, 
                 status: false, 
-                created: date.toLocaleString('en-GB', options),
+                created: date.toLocaleString(),
             };
             let newTicketFull = {
                 id: ticketsFull.length, 
                 name: requestBody.short_description, 
                 description: requestBody.long_description, 
                 status: false, 
-                created: date.toLocaleString('en-GB', options),
+                created: date.toLocaleString(),
             };
             tickets.push(newTicket);
             ticketsFull.push(newTicketFull);
