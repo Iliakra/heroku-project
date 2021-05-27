@@ -51,7 +51,7 @@ app.use(async ctx => {
             return;
         case 'createTicket':
             let requestBody = ctx.request.body;
-            //console.log();
+            console.log(requestBody);
             let date = new Date();
             //let options = {day: 'numeric', month: 'numeric', year: '2-digit', hour: 'numeric', minute: 'numeric'};
             let newTicket = {
