@@ -73,7 +73,7 @@ app.use(async ctx => {
             ctx.response.body = 'OK';
             return
         case 'ticketById':
-            const { id } = ctx.request.query;
+            //const { id } = ctx.request.query;
             ctx.response.body = 'OK';
             return
         default:
