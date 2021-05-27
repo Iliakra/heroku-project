@@ -58,14 +58,14 @@ app.use(async ctx => {
             let newTicket = {
                 id: tickets.length, 
                 name: requestBody.short_description, 
-                status: false, 
+                status: requestBody.status, 
                 created: displayTime(),
             };
             let newTicketFull = {
                 id: ticketsFull.length, 
                 name: requestBody.short_description, 
                 description: requestBody.long_description, 
-                status: false, 
+                status: requestBody.status, 
                 created: displayTime(),
             };
             tickets.push(newTicket);
