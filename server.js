@@ -46,9 +46,6 @@ app.use(async ctx => {
         case 'allTickets':
             ctx.response.body = tickets;
             return;
-        case 'ticketById':
-            ctx.response.body = ticketsFull;
-            return;
         case 'createTicket':
             let requestBody = ctx.request.body;
             let date = new Date();
