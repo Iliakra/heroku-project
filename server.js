@@ -36,6 +36,7 @@ function displayTime() {
 app.use(koaBody({urlencoded: true, multipart: true,}));
 
 app.use(async ctx => {
+    console.log('ctx.request.query',ctx.request.query);
     const { method } = ctx.request.query;
     const requestBody = ctx.request.body;
 
