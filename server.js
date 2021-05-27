@@ -38,9 +38,8 @@ app.use(koaBody({urlencoded: true, multipart: true,}));
 app.use(async ctx => {
     console.log('ctx.request.query',ctx.request.query);
     const { method } = ctx.request.query;
-    const requestBody = ctx.request.body;
 
-    ctx.response.set({'Access-Control-Allow-Origin':'*', 'permissions-policy': 'interest-cohort=()',});
+    ctx.response.set({'Access-Control-Allow-Origin':'*',});
 
 
     switch (method) {
@@ -52,7 +51,6 @@ app.use(async ctx => {
             return;
         case 'createTicket':
             let requestBody = ctx.request.body;
-            console.log(requestBody);
             let date = new Date();
             //let options = {day: 'numeric', month: 'numeric', year: '2-digit', hour: 'numeric', minute: 'numeric'};
             let newTicket = {
@@ -73,8 +71,9 @@ app.use(async ctx => {
             ctx.response.body = 'OK';
             return
         case 'ticketById':
-            //const { id } = ctx.request.query;
-            ctx.response.body = 'OK';
+            const { id } = ctx.request.query;
+            console.log('id', id);
+            ctx.response.body = id;
             return
         default:
             ctx.response.status = 404;
