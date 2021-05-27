@@ -71,6 +71,9 @@ app.use(async ctx => {
             ticketsFull.push(newTicketFull);
             ctx.response.body = 'OK';
             return
+        case 'ticketById':
+            const { id } = ctx.request.query;
+            ctx.response.body = id;
         default:
             ctx.response.status = 404;
             return;
