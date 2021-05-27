@@ -55,13 +55,13 @@ app.use(async ctx => {
             let date = new Date();
             //let options = {day: 'numeric', month: 'numeric', year: '2-digit', hour: 'numeric', minute: 'numeric'};
             let newTicket = {
-                id: tickets.length, 
+                id: tickets.length+1, 
                 name: requestBody.short_description, 
                 status: requestBody.status, 
                 created: displayTime(),
             };
             let newTicketFull = {
-                id: ticketsFull.length, 
+                id: ticketsFull.length+1, 
                 name: requestBody.short_description, 
                 description: requestBody.long_description, 
                 status: requestBody.status, 
