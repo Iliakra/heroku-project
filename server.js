@@ -48,8 +48,6 @@ app.use(async ctx => {
             return;
         case 'createTicket':
             let requestBody = ctx.request.body;
-            let date = new Date();
-            //let options = {day: 'numeric', month: 'numeric', year: '2-digit', hour: 'numeric', minute: 'numeric'};
             let newTicket = {
                 id: tickets.length+1, 
                 name: requestBody.short_description, 
@@ -69,7 +67,6 @@ app.use(async ctx => {
             return
         case 'ticketById':
             const { id } = ctx.request.query;
-            console.log('id', id);
             ctx.response.body = id;
             return
         default:
