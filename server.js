@@ -74,7 +74,7 @@ app.use(async ctx => {
             return
         case 'ticketById':
             const { id } = ctx.request.query;
-            ctx.response.body = id;
+            ctx.response.body = 'OK';
             return
         default:
             ctx.response.status = 404;
