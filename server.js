@@ -41,7 +41,8 @@ app.use(async ctx => {
     const { method } = ctx.request.query;
     const requestBody = ctx.request.body;
 
-    ctx.response.set({'Access-Control-Allow-Origin':'*',});
+    ctx.response.set({'Access-Control-Allow-Origin':'*', 'permissions-policy': 'interest-cohort=()',});
+
 
     switch (method) {
         case 'allTickets':
