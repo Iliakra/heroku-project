@@ -29,9 +29,7 @@ function displayTime() {
         minutes = "0" + minutes
     }
 
-
     str += date + "." + month + "." + currentYear + " " + hour + ':' + minutes;
-    
     return str;
 }
 
@@ -53,6 +51,7 @@ app.use(async ctx => {
             return;
         case 'createTicket':
             let requestBody = ctx.request.body;
+            //console.log();
             let date = new Date();
             //let options = {day: 'numeric', month: 'numeric', year: '2-digit', hour: 'numeric', minute: 'numeric'};
             let newTicket = {
