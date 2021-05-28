@@ -76,6 +76,7 @@ app.use(async ctx => {
             return
         case 'ticketById':
             const { id } = ctx.request.query;
+            console.log('id',id);
             let ticket = findTicketById(id);
             console.log('ticket',ticket);
             ctx.response.body = JSON.stringify(ticket);
