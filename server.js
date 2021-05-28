@@ -65,7 +65,7 @@ app.use(async ctx => {
         case 'createTicket':
             let requestBody = ctx.request.body;
             console.log('reqBode', requestBody);
-            if(requestBody.id === null){
+            if(requestBody.id === 'null'){
                 let newTicket = {
                     id: tickets.length+1, 
                     name: requestBody.short_description, 
