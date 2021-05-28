@@ -65,21 +65,25 @@ app.use(async ctx => {
         case 'createTicket':
             let requestBody = ctx.request.body;
             console.log('reqBode', requestBody);
-            let newTicket = {
-                id: tickets.length+1, 
-                name: requestBody.short_description, 
-                status: requestBody.status, 
-                created: displayTime(),
-            };
-            let newTicketFull = {
-                id: ticketsFull.length+1, 
-                name: requestBody.short_description, 
-                description: requestBody.long_description, 
-                status: requestBody.status, 
-                created: displayTime(),
-            };
-            tickets.push(newTicket);
-            ticketsFull.push(newTicketFull);
+            if(requestBody.id === null){
+                let newTicket = {
+                    id: tickets.length+1, 
+                    name: requestBody.short_description, 
+                    status: requestBody.status, 
+                    created: displayTime(),
+                };
+                let newTicketFull = {
+                    id: ticketsFull.length+1, 
+                    name: requestBody.short_description, 
+                    description: requestBody.long_description, 
+                    status: requestBody.status, 
+                    created: displayTime(),
+                };
+                tickets.push(newTicket);
+                ticketsFull.push(newTicketFull);
+            } else {
+                console.log('else');
+            }
             ctx.response.body = 'OK';
             return
         case 'ticketById':
