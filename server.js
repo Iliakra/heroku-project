@@ -72,7 +72,7 @@ app.use(async ctx => {
                     ctx.response.body = JSON.stringify(ticketsFull[i]);
                 }
             }
-            //ctx.response.body = id;
+            ctx.response.body = id;
             return
         default:
             ctx.response.status = 404;
