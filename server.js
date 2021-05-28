@@ -67,7 +67,12 @@ app.use(async ctx => {
             return
         case 'ticketById':
             const { id } = ctx.request.query;
-            ctx.response.body = id;
+            for (let i=0; i<ticketsFull.length; i++) {
+                if (ticketsFull[i].id === id) {
+                    ctx.response.body = JSON.stringify(ticketsFull[i]);
+                }
+            }
+            //ctx.response.body = id;
             return
         default:
             ctx.response.status = 404;
