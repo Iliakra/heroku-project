@@ -33,6 +33,15 @@ function displayTime() {
     return str;
 }
 
+function findTicketById (id) {
+    for (let i=0; i<ticketsFull.length; i++) {
+        if (ticketsFull[i].id === id) {
+            requestedTicket = ticketsFull[i];
+            return requestedTicket;
+        }
+    }
+}
+
 app.use(koaBody({urlencoded: true, multipart: true,}));
 
 app.use(async ctx => {
@@ -67,13 +76,8 @@ app.use(async ctx => {
             return
         case 'ticketById':
             const { id } = ctx.request.query;
-            for (let i=0; i<ticketsFull.length; i++) {
-                if (ticketsFull[i].id === id) {
-                    ticketRequested = ticketsFull[i];
-                    ctx.response.body = JSON.stringify(ticketsFull[i]);
-                    return
-                }
-            }
+            let ticket = findTicketById(id);
+            ctx.response.body = JSON.stringify(ticket);
             return
         default:
             ctx.response.status = 404;
