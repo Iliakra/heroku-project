@@ -33,9 +33,9 @@ function displayTime() {
     return str;
 }
 
-function findTicketById (id) {
+function findTicketById (reqId) {
     for (let i=0; i<ticketsFull.length; i++) {
-        if (ticketsFull[i].id === id) {
+        if (ticketsFull[i].id === reqId) {
             requestedTicket = ticketsFull[i];
             return requestedTicket;
         }
