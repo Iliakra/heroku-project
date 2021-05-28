@@ -57,6 +57,7 @@ app.use(async ctx => {
             return;
         case 'createTicket':
             let requestBody = ctx.request.body;
+            console.log('reqBode', requestBody);
             let newTicket = {
                 id: tickets.length+1, 
                 name: requestBody.short_description, 
