@@ -57,7 +57,6 @@ app.use(async ctx => {
 
     ctx.response.set({'Access-Control-Allow-Origin':'*',});
 
-
     switch (method) {
         case 'allTickets':
             ctx.response.body = tickets;
