@@ -82,7 +82,23 @@ app.use(async ctx => {
                 tickets.push(newTicket);
                 ticketsFull.push(newTicketFull);
             } else {
-                console.log('else');
+                //console.log('else');
+                let idValue = requestBody.id;
+                tickets = tickets.map((ticket) => {
+                    if(ticket.id === idValue) {
+                        return { id: idValue, name: requestBody.short_description, status: requestBody.status, created: displayTime()};
+                    } else {
+                        return ticket
+                    }
+                });
+                ticketsFull = ticketsFull.map((ticket) => {
+                    if(ticket.id === idValue) {
+                        return { id: idValue, name: requestBody.short_description, description: long_description, status: requestBody.status, created: displayTime()};
+                    } else {
+                        return ticket
+                    }
+                });
+                console.log(tickets, ticketsFull);
             }
             ctx.response.body = 'OK';
             return
