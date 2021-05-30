@@ -81,7 +81,7 @@ app.use(async ctx => {
                 tickets.push(newTicket);
                 ticketsFull.push(newTicketFull);
             } else {
-                console.log('else');
+                console.log(requestBody.id);
                 /*let idValue = requestBody.id;
                 tickets = tickets.map((ticket) => {
                     if(ticket.id === idValue) {
@@ -111,7 +111,6 @@ app.use(async ctx => {
             ctx.response.status = 404;
             return;
     }
-
 });
 
 
