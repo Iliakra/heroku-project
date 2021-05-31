@@ -84,6 +84,7 @@ app.use(async ctx => {
     
                 let idValue = requestBody.id;
                 tickets = tickets.map((ticket) => {
+                    console.log(ticket.id);
                     if(ticket.id === idValue) {
                         return { id: idValue, name: requestBody.short_description, status: requestBody.status, created: displayTime()};
                     } else {
