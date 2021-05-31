@@ -80,7 +80,7 @@ app.use(async ctx => {
                 tickets.push(newTicket);
                 ticketsFull.push(newTicketFull);
             } else {
-                console.log(requestBody.id);
+                console.log('type',typeof(requestBody.id));
     
                 let idValue = requestBody.id;
                 tickets = tickets.map((ticket) => {
