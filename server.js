@@ -105,12 +105,12 @@ app.use(async ctx => {
             ctx.response.body = 'OK';
             return
         case 'ticketById':
-            const { id } = ctx.request.query;
+            let { id } = ctx.request.query;
             let ticket = findTicketById(Number(id));
             ctx.response.body = JSON.stringify(ticket);
             return
         case 'deleteTicketById':
-            const { id } = ctx.request.query;
+            let { id } = ctx.request.query;
             ticket.splice((Number(id)-1),1);
             ticketsFull.splice((Number(id)-1),1);
             ctx.response.body = 'OK';
