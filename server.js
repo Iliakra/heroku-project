@@ -96,7 +96,7 @@ app.use(async ctx => {
                         return ticket
                     }
                 });
-                console.log(tickets, ticketsFull);
+                console.log('!!!!!!',tickets, ticketsFull);
             }
             ctx.response.body = 'OK';
             return
