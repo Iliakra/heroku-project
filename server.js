@@ -81,6 +81,7 @@ app.use(async ctx => {
                 ticketsFull.push(newTicketFull);
             } else {
                 console.log(requestBody.id);
+                /*
                 let idValue = requestBody.id;
                 tickets = tickets.map((ticket) => {
                     if(ticket.id === idValue) {
@@ -97,6 +98,7 @@ app.use(async ctx => {
                     }
                 });
                 console.log('!!!!!!',tickets, ticketsFull);
+                */
             }
             ctx.response.body = 'OK';
             return
