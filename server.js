@@ -110,9 +110,9 @@ app.use(async ctx => {
             ctx.response.body = JSON.stringify(ticket);
             return
         case 'deleteTicketById':
-            let { id } = ctx.request.query;
-            ticket.splice((Number(id)-1),1);
-            ticketsFull.splice((Number(id)-1),1);
+            let { deleteId } = ctx.request.query;
+            ticket.splice((Number(deleteId)-1),1);
+            ticketsFull.splice((Number(deleteId)-1),1);
             ctx.response.body = 'OK';
             return
         default:
