@@ -111,7 +111,7 @@ app.use(async ctx => {
             return
         case 'deleteTicketById':
             let { deleteId } = ctx.request.query;
-            ticket.splice((Number(deleteId)-1),1);
+            tickets.splice((Number(deleteId)-1),1);
             ticketsFull.splice((Number(deleteId)-1),1);
             ctx.response.body = 'OK';
             return
