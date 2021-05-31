@@ -80,9 +80,10 @@ app.use(async ctx => {
                 tickets.push(newTicket);
                 ticketsFull.push(newTicketFull);
             } else {
-                console.log('type',typeof(requestBody.id));
+                //console.log('type',typeof(requestBody.id));
     
-                let idValue = requestBody.id;
+                let idValue = Number(requestBody.id);
+                console.log('type',typeof(idValue));
                 tickets = tickets.map((ticket) => {
                     console.log(ticket.id);
                     if(ticket.id === idValue) {
