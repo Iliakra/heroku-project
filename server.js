@@ -94,7 +94,7 @@ app.use(async ctx => {
                 });
                 ticketsFull = ticketsFull.map((ticket) => {
                     if(ticket.id === idValue) {
-                        return { id: idValue, name: requestBody.short_description, description: long_description, status: requestBody.status, created: displayTime()};
+                        return { id: idValue, name: requestBody.short_description, description: requestBody.long_description, status: requestBody.status, created: displayTime()};
                     } else {
                         return ticket
                     }
