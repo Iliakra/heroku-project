@@ -127,7 +127,7 @@ app.use(async ctx => {
         case 'showTicketDescription':
             let { descriptionId } = ctx.request.query;
             console.log('descriptionTicketId',descriptionId);
-            tickets = tickets.map((ticket, index) => {
+            ticketsWithDescription = tickets.map((ticket, index) => {
                 console.log('index',index);
                 if(ticket.id === descriptionId) {
                     return ticketsFull[index];
@@ -135,7 +135,7 @@ app.use(async ctx => {
                     return ticket
                 }
             });
-            ctx.response.body = tickets;
+            ctx.response.body = ticketsWithDescription;
             return
         default:
             ctx.response.status = 404;
