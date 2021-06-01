@@ -125,10 +125,10 @@ app.use(async ctx => {
             ctx.response.body = 'OK';
             return
         case 'showTicketDescription':
-            let { showDescriptionId } = ctx.request.query;
+            let { descriptionTicketId } = ctx.request.query;
             tickets = tickets.map((ticket, index) => {
                 //console.log(ticket.id);
-                if(ticket.id === showDescriptionId) {
+                if(ticket.id === descriptionTicketId) {
                     return ticketsFull[index];
                 } else {
                     return ticket
