@@ -116,7 +116,9 @@ app.use(async ctx => {
             let { deleteId } = ctx.request.query;
             console.log(deleteId);
             let ticketForDeletion = findTicketById(deleteId);
+            console.log('ticketForDeletion',ticketForDeletion);
             let ticketIndex = tickets.indexOf(ticketForDeletion);
+            console.log('ticketIndex',ticketIndex);
             tickets.splice(ticketIndex,1);
             ticketsFull.splice(ticketIndex,1);
             ctx.response.body = 'OK';
