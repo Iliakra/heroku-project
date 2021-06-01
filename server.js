@@ -129,7 +129,7 @@ app.use(async ctx => {
             console.log('descriptionTicketId',descriptionId);
             tickets = tickets.map((ticket, index) => {
                 console.log('index',index);
-                if(ticket.id === descriptionTicketId) {
+                if(ticket.id === descriptionId) {
                     return ticketsFull[index];
                 } else {
                     return ticket
