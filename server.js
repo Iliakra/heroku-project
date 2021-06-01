@@ -49,6 +49,10 @@ function findTicketById (reqId) {
     }
 }
 
+function getRandomId() {
+    return '_' + Math.random().toString(36).substr(2, 9);
+}
+
 app.use(koaBody({urlencoded: true, multipart: true,}));
 
 app.use(async ctx => {
@@ -65,13 +69,13 @@ app.use(async ctx => {
             let requestBody = ctx.request.body;
             if(requestBody.id === 'null'){
                 let newTicket = {
-                    id: tickets.length+1, 
+                    id: getRandomId(), 
                     name: requestBody.short_description, 
                     status: requestBody.status, 
                     created: displayTime(),
                 };
                 let newTicketFull = {
-                    id: ticketsFull.length+1, 
+                    id: newTicket.id, 
                     name: requestBody.short_description, 
                     description: requestBody.long_description, 
                     status: requestBody.status, 
@@ -81,8 +85,8 @@ app.use(async ctx => {
                 ticketsFull.push(newTicketFull);
             } else {
                 //console.log('type',typeof(requestBody.id));
-                let idValue = Number(requestBody.id);
-                console.log('type',typeof(idValue));
+                let idValue = requestBody.id;
+                //console.log('type',typeof(idValue));
                 tickets = tickets.map((ticket) => {
                     console.log(ticket.id);
                     if(ticket.id === idValue) {
@@ -105,13 +109,15 @@ app.use(async ctx => {
             return
         case 'ticketById':
             let { id } = ctx.request.query;
-            let ticket = findTicketById(Number(id));
+            let ticket = findTicketById(id);
             ctx.response.body = JSON.stringify(ticket);
             return
         case 'deleteTicketById':
             let { deleteId } = ctx.request.query;
-            tickets.splice((Number(deleteId)-1),1);
-            ticketsFull.splice((Number(deleteId)-1),1);
+            let ticketForDeletion = findTicketById(deleteId);
+            let ticketIndex = tickets.indexOf(ticketForDeletion);
+            tickets.splice(ticketIndex,1);
+            ticketsFull.splice(ticketIndex,1);
             ctx.response.body = 'OK';
             return
         default:
