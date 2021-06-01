@@ -81,7 +81,6 @@ app.use(async ctx => {
                 ticketsFull.push(newTicketFull);
             } else {
                 //console.log('type',typeof(requestBody.id));
-    
                 let idValue = Number(requestBody.id);
                 console.log('type',typeof(idValue));
                 tickets = tickets.map((ticket) => {
