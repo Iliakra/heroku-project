@@ -114,6 +114,7 @@ app.use(async ctx => {
             return
         case 'deleteTicketById':
             let { deleteId } = ctx.request.query;
+            console.log(deleteId);
             let ticketForDeletion = findTicketById(deleteId);
             let ticketIndex = tickets.indexOf(ticketForDeletion);
             tickets.splice(ticketIndex,1);
