@@ -115,12 +115,13 @@ app.use(async ctx => {
         case 'deleteTicketById':
             let { deleteId } = ctx.request.query;
             console.log(deleteId);
-            let ticketForDeletion = findTicketById(deleteId);
-            console.log('ticketForDeletion',ticketForDeletion);
-            let ticketIndex = tickets.indexOf(ticketForDeletion);
-            console.log('ticketIndex',ticketIndex);
-            tickets.splice(ticketIndex,1);
-            ticketsFull.splice(ticketIndex,1);
+            //let ticketForDeletion = findTicketById(deleteId);
+            for (let i=0; i<tickets.length; i++) {
+                if(tickets[i].id === deleteId) {
+                    tickets.splice(i,1);
+                    ticketsFull.splice(i,1);
+                }
+            }
             ctx.response.body = 'OK';
             return
         default:
