@@ -125,8 +125,8 @@ app.use(async ctx => {
             ctx.response.body = 'OK';
             return
         case 'showTicketDescription':
-            let { descriptionTicketId } = ctx.request.query;
-            console.log('descriptionTicketId',descriptionTicketId);
+            let { descriptionId } = ctx.request.query;
+            console.log('descriptionTicketId',descriptionId);
             tickets = tickets.map((ticket, index) => {
                 console.log('index',index);
                 if(ticket.id === descriptionTicketId) {
