@@ -56,7 +56,7 @@ function getRandomId() {
 app.use(koaBody({urlencoded: true, multipart: true,}));
 
 app.use(async ctx => {
-    console.log('ctx.request.query',ctx.request.query);
+    //console.log('ctx.request.query',ctx.request.query);
     const { method } = ctx.request.query;
 
     ctx.response.set({'Access-Control-Allow-Origin':'*',});
@@ -88,7 +88,7 @@ app.use(async ctx => {
                 let idValue = requestBody.id;
                 //console.log('type',typeof(idValue));
                 tickets = tickets.map((ticket) => {
-                    console.log(ticket.id);
+                    //console.log(ticket.id);
                     if(ticket.id === idValue) {
                         return { id: idValue, name: requestBody.short_description, status: requestBody.status, created: displayTime()};
                     } else {
@@ -114,7 +114,7 @@ app.use(async ctx => {
             return
         case 'deleteTicketById':
             let { deleteId } = ctx.request.query;
-            console.log(deleteId);
+            //console.log(deleteId);
             //let ticketForDeletion = findTicketById(deleteId);
             for (let i=0; i<tickets.length; i++) {
                 if(tickets[i].id === deleteId) {
@@ -126,9 +126,9 @@ app.use(async ctx => {
             return
         case 'showTicketDescription':
             let { descriptionId } = ctx.request.query;
-            console.log('descriptionTicketId',descriptionId);
+            //console.log('descriptionTicketId',descriptionId);
             ticketsWithDescription = tickets.map((ticket, index) => {
-                console.log('index',index);
+                //console.log('index',index);
                 if(ticket.id === descriptionId) {
                     return ticketsFull[index];
                 } else {
