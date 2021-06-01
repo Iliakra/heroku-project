@@ -4,13 +4,13 @@ const koaBody = require('koa-body');
 const app= new Koa();
 
 let tickets = [
-    {id: 1, name: 'Серверная задача 1', status: "true", created: '18.05.2021 13.15'}, 
-    {id: 2, name: 'Найти сотрудника', status: "false", created: '18.05.2021 14.15'}
+    {id: '_678iuy', name: 'Серверная задача 1', status: "true", created: '18.05.2021 13.15'}, 
+    {id: '_u1234nh', name: 'Найти сотрудника', status: "false", created: '18.05.2021 14.15'}
 ];
 
 let ticketsFull = [
-    {id: 1, name: 'Серверная задача 1', description: 'eeddedeededededed', status: "true", created: '18.05.2021 13.15'}, 
-    {id: 2, name: 'Найти сотрудника', description: 'eeddedeededededed', status: "false", created: '18.05.2021 14.15'}
+    {id: '_678iuy', name: 'Серверная задача 1', description: 'eeddedeededededed', status: "true", created: '18.05.2021 13.15'}, 
+    {id: '_u1234nh', name: 'Найти сотрудника', description: 'eeddedeededededed', status: "false", created: '18.05.2021 14.15'}
 ]
 
 function displayTime() {
