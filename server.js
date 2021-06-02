@@ -4,13 +4,13 @@ const koaBody = require('koa-body');
 const app= new Koa();
 
 let tickets = [
-    {id: '_678iuy', name: 'Серверная задача 1', status: "true", created: '18.05.2021 13.15'}, 
-    {id: '_u1234nh', name: 'Найти сотрудника', status: "false", created: '18.05.2021 14.15'}
+    {id: '_678iuy', name: 'Убраться в офисе', status: "true", created: '18.05.2021 13.15'}, 
+    {id: '_u1234nh', name: 'Найти сотрудника на ресепшн', status: "false", created: '18.05.2021 14.15'}
 ];
 
 let ticketsFull = [
-    {id: '_678iuy', name: 'Серверная задача 1', description: 'eeddedeededededed', status: "true", created: '18.05.2021 13.15'}, 
-    {id: '_u1234nh', name: 'Найти сотрудника', description: 'eeddedeededededed', status: "false", created: '18.05.2021 14.15'}
+    {id: '_678iuy', name: 'Убраться в офисе', description: 'Каждому навести порядок на своем рабочем месте, а также попросить уборщицу сделать генеральную уборку в офисе', status: "true", created: '18.05.2021 13.15'}, 
+    {id: '_u1234nh', name: 'Найти сотрудника на ресепшн', description: 'Необходимо срочно найти сотрудника с опытом работы администратором на ресепшн, оформление по ТК', status: "false", created: '18.05.2021 14.15'}
 ]
 
 function displayTime() {
